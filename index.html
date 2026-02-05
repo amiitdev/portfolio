@@ -1,0 +1,1835 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amit Kumar | Backend & DevOps Engineer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'neon-blue': '#00f3ff',
+              'neon-purple': '#9d00ff',
+              'neon-pink': '#ff00ff',
+              'neon-green': '#00ff9d',
+              'dark-bg': '#0a0a0f',
+              'dark-card': '#11111f',
+              'darker-card': '#0d0d1a',
+            },
+            animation: {
+              float: 'float 3s ease-in-out infinite',
+              'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+              'slide-in-left': 'slide-in-left 0.8s ease-out',
+              'slide-in-right': 'slide-in-right 0.8s ease-out',
+              'bounce-in': 'bounce-in 0.8s ease-out',
+              'fade-in-up': 'fade-in-up 0.8s ease-out',
+              'fade-in-down': 'fade-in-down 0.8s ease-out',
+              typewriter: 'typewriter 3.5s steps(40, end)',
+              'blink-caret': 'blink-caret 0.75s step-end infinite',
+              'neon-glow': 'neon-glow 1.5s ease-in-out infinite alternate',
+              'rotate-3d': 'rotate-3d 20s linear infinite',
+              'particle-float': 'particle-float 20s linear infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
+              'pulse-glow': {
+                '0%, 100%': { opacity: 1 },
+                '50%': { opacity: 0.7 },
+              },
+              'slide-in-left': {
+                '0%': { transform: 'translateX(-100px)', opacity: 0 },
+                '100%': { transform: 'translateX(0)', opacity: 1 },
+              },
+              'slide-in-right': {
+                '0%': { transform: 'translateX(100px)', opacity: 0 },
+                '100%': { transform: 'translateX(0)', opacity: 1 },
+              },
+              'bounce-in': {
+                '0%': { transform: 'scale(0.3)', opacity: 0 },
+                '50%': { transform: 'scale(1.05)', opacity: 1 },
+                '70%': { transform: 'scale(0.9)' },
+                '100%': { transform: 'scale(1)', opacity: 1 },
+              },
+              'fade-in-up': {
+                '0%': { transform: 'translateY(30px)', opacity: 0 },
+                '100%': { transform: 'translateY(0)', opacity: 1 },
+              },
+              'fade-in-down': {
+                '0%': { transform: 'translateY(-30px)', opacity: 0 },
+                '100%': { transform: 'translateY(0)', opacity: 1 },
+              },
+              typewriter: {
+                from: { width: '0' },
+                to: { width: '100%' },
+              },
+              'blink-caret': {
+                'from, to': { 'border-color': 'transparent' },
+                '50%': { 'border-color': '#00f3ff' },
+              },
+              'neon-glow': {
+                from: {
+                  textShadow:
+                    '0 0 10px #00f3ff, 0 0 20px #00f3ff, 0 0 30px #00f3ff',
+                },
+                to: {
+                  textShadow:
+                    '0 0 20px #00f3ff, 0 0 30px #00f3ff, 0 0 40px #00f3ff',
+                },
+              },
+              'rotate-3d': {
+                '0%': { transform: 'rotateY(0deg) rotateX(0deg)' },
+                '100%': { transform: 'rotateY(360deg) rotateX(360deg)' },
+              },
+              'particle-float': {
+                '0%': { transform: 'translateY(0px) translateX(0px)' },
+                '25%': { transform: 'translateY(-20px) translateX(10px)' },
+                '50%': { transform: 'translateY(0px) translateX(20px)' },
+                '75%': { transform: 'translateY(20px) translateX(10px)' },
+                '100%': { transform: 'translateY(0px) translateX(0px)' },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #0a0a0f;
+        color: #e0e0ff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow-x: hidden;
+        width: 100%;
+        min-height: 100vh;
+        background-image:
+          radial-gradient(
+            circle at 10% 20%,
+            rgba(0, 243, 255, 0.05) 0%,
+            transparent 20%
+          ),
+          radial-gradient(
+            circle at 90% 80%,
+            rgba(157, 0, 255, 0.05) 0%,
+            transparent 20%
+          );
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Neon Effects */
+      .neon-text-blue {
+        color: #00f3ff;
+        text-shadow: 0 0 10px rgba(0, 243, 255, 0.7);
+      }
+
+      .neon-text-purple {
+        color: #9d00ff;
+        text-shadow: 0 0 10px rgba(157, 0, 255, 0.7);
+      }
+
+      .neon-text-green {
+        color: #00ff9d;
+        text-shadow: 0 0 10px rgba(0, 255, 157, 0.7);
+      }
+
+      .neon-border-blue {
+        border: 1px solid #00f3ff;
+        box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+      }
+
+      .neon-border-purple {
+        border: 1px solid #9d00ff;
+        box-shadow: 0 0 15px rgba(157, 0, 255, 0.3);
+      }
+
+      .neon-border-green {
+        border: 1px solid #00ff9d;
+        box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+      }
+
+      .neon-btn-blue {
+        background-color: transparent;
+        color: #00f3ff;
+        border: 1px solid #00f3ff;
+        box-shadow: 0 0 10px rgba(0, 243, 255, 0.7);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .neon-btn-blue:hover {
+        background-color: rgba(0, 243, 255, 0.1);
+        box-shadow: 0 0 20px rgba(0, 243, 255, 0.9);
+        transform: translateY(-2px);
+      }
+
+      .neon-btn-blue::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -60%;
+        width: 40%;
+        height: 200%;
+        background: rgba(255, 255, 255, 0.1);
+        transform: rotate(30deg);
+        transition: all 0.5s ease;
+      }
+
+      .neon-btn-blue:hover::after {
+        left: 120%;
+      }
+
+      .dark-card {
+        background-color: #11111f;
+        border-radius: 10px;
+      }
+
+      .darker-card {
+        background-color: #0d0d1a;
+        border-radius: 10px;
+      }
+
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 243, 255, 0.05),
+          rgba(157, 0, 255, 0.05)
+        );
+      }
+
+      /* Hamburger Menu Fix */
+      .hamburger-line {
+        transition: all 0.3s ease;
+        width: 25px;
+        height: 2px;
+        background-color: #e0e0ff;
+        margin: 4px 0;
+      }
+
+      .hamburger-active .line-1 {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .hamburger-active .line-2 {
+        opacity: 0;
+      }
+
+      .hamburger-active .line-3 {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+
+      /* Mobile Menu Overlay Fix */
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+        z-index: 9998;
+        display: none;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background-color: #11111f;
+        z-index: 9999;
+        transition: right 0.4s ease;
+        padding-top: 80px;
+        box-shadow: -5px 0 15px rgba(0, 243, 255, 0.2);
+      }
+
+      .mobile-menu.active {
+        right: 0;
+      }
+
+      /* Project card hover effect */
+      .project-card {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 15px 30px rgba(0, 243, 255, 0.2);
+      }
+
+      .project-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(0, 243, 255, 0.1),
+          transparent
+        );
+        transition: left 0.7s ease;
+      }
+
+      .project-card:hover::before {
+        left: 100%;
+      }
+
+      /* Tech stack icons animation */
+      .tech-icon {
+        transition: all 0.3s ease;
+      }
+
+      .tech-icon:hover {
+        transform: scale(1.2) rotate(5deg);
+        filter: drop-shadow(0 0 10px rgba(0, 243, 255, 0.7));
+      }
+
+      /* Smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Section Padding for Mobile */
+      section {
+        padding: 60px 0;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Typewriter effect */
+      .typewriter-text {
+        overflow: hidden;
+        border-right: 3px solid #00f3ff;
+        white-space: nowrap;
+        margin: 0 auto;
+        animation:
+          typewriter 3.5s steps(40, end),
+          blink-caret 0.75s step-end infinite;
+      }
+
+      /* Floating particles */
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(0, 243, 255, 0.1);
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      /* 3D rotating cube */
+      .cube-container {
+        perspective: 1000px;
+        margin: 0 auto;
+      }
+
+      .cube {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        transform-style: preserve-3d;
+        animation: rotate-3d 20s linear infinite;
+      }
+
+      .cube-face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        border: 1px solid rgba(0, 243, 255, 0.3);
+        background: rgba(0, 243, 255, 0.05);
+      }
+
+      .front {
+        transform: translateZ(50px);
+      }
+      .back {
+        transform: rotateY(180deg) translateZ(50px);
+      }
+      .right {
+        transform: rotateY(90deg) translateZ(50px);
+      }
+      .left {
+        transform: rotateY(-90deg) translateZ(50px);
+      }
+      .top {
+        transform: rotateX(90deg) translateZ(50px);
+      }
+      .bottom {
+        transform: rotateX(-90deg) translateZ(50px);
+      }
+
+      /* Form input focus */
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #00f3ff !important;
+        box-shadow:
+          0 0 0 1px rgba(0, 243, 255, 0.2),
+          0 0 15px rgba(0, 243, 255, 0.3);
+      }
+
+      /* Loading animation for CV download */
+      .download-loading {
+        display: none;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #00f3ff;
+        border-top: 2px solid transparent;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Full width on mobile */
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 15px;
+        }
+
+        section {
+          padding: 40px 0;
+        }
+
+        .mobile-full-width {
+          width: 100vw;
+          position: relative;
+          left: 50%;
+          right: 50%;
+          margin-left: -50vw;
+          margin-right: -50vw;
+        }
+      }
+
+      /* Fix for small screens */
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 12px;
+        }
+
+        h1 {
+          font-size: 2.5rem !important;
+        }
+
+        h2 {
+          font-size: 2rem !important;
+        }
+
+        section {
+          padding: 30px 0;
+        }
+
+        .cube {
+          width: 80px;
+          height: 80px;
+        }
+
+        .cube-face {
+          font-size: 1.5rem;
+        }
+
+        .front {
+          transform: translateZ(40px);
+        }
+        .back {
+          transform: rotateY(180deg) translateZ(40px);
+        }
+        .right {
+          transform: rotateY(90deg) translateZ(40px);
+        }
+        .left {
+          transform: rotateY(-90deg) translateZ(40px);
+        }
+        .top {
+          transform: rotateX(90deg) translateZ(40px);
+        }
+        .bottom {
+          transform: rotateX(-90deg) translateZ(40px);
+        }
+      }
+    </style>
+  </head>
+  <body class="w-full" id="body">
+    <!-- Floating Particles Background -->
+    <div id="particles-container"></div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full z-40 py-3 px-4 bg-dark-bg/95 backdrop-blur-md border-b border-gray-900"
+      data-aos="fade-down"
+    >
+      <div class="container flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex items-center">
+          <div class="text-2xl font-bold neon-text-blue">@mit</div>
+          <div class="ml-2 text-base font-bold hidden sm:block">
+            Backend & DevOps
+          </div>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-8">
+          <a
+            href="#home"
+            class="hover:neon-text-blue transition duration-300 py-2 relative group"
+          >
+            Home
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-blue transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+          <a
+            href="#about"
+            class="hover:neon-text-blue transition duration-300 py-2 relative group"
+          >
+            About
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-purple transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+          <a
+            href="#work"
+            class="hover:neon-text-blue transition duration-300 py-2 relative group"
+          >
+            Work
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-blue transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+          <a
+            href="#tech"
+            class="hover:neon-text-blue transition duration-300 py-2 relative group"
+          >
+            Tech Stacks
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-purple transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+          <a
+            href="#contact"
+            class="hover:neon-text-blue transition duration-300 py-2 relative group"
+          >
+            Contact
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-blue transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+        </div>
+
+        <!-- Hamburger Menu for Mobile -->
+        <div class="md:hidden">
+          <button
+            id="hamburger-btn"
+            class="flex flex-col items-center justify-center w-10 h-10"
+          >
+            <div class="hamburger-line line-1"></div>
+            <div class="hamburger-line line-2"></div>
+            <div class="hamburger-line line-3"></div>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="flex flex-col space-y-8 px-8">
+        <a
+          href="#home"
+          class="text-xl hover:neon-text-blue transition duration-300 py-2 border-b border-gray-800"
+          >Home</a
+        >
+        <a
+          href="#about"
+          class="text-xl hover:neon-text-blue transition duration-300 py-2 border-b border-gray-800"
+          >About</a
+        >
+        <a
+          href="#work"
+          class="text-xl hover:neon-text-blue transition duration-300 py-2 border-b border-gray-800"
+          >Work</a
+        >
+        <a
+          href="#tech"
+          class="text-xl hover:neon-text-blue transition duration-300 py-2 border-b border-gray-800"
+          >Tech Stacks</a
+        >
+        <a
+          href="#contact"
+          class="text-xl hover:neon-text-blue transition duration-300 py-2 border-b border-gray-800"
+          >Contact</a
+        >
+        <a
+          href="/resume.pdf"
+          download="Amit_Resume.pdf"
+          class="neon-btn-blue py-3 px-6 rounded-md text-center mt-8 flex items-center justify-center"
+        >
+          <i class="fas fa-download mr-2"></i>
+          <span>Download CV</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Section with Typewriter Effect -->
+    <section id="home" class="pt-24 md:pt-32">
+      <div class="container">
+        <div class="flex flex-col lg:flex-row items-center justify-between">
+          <div
+            class="lg:w-1/2 w-full mb-12 lg:mb-0"
+            data-aos="fade-right"
+            data-aos-delay="200"
+          >
+            <div class="text-lg neon-text-purple mb-4 animate-pulse-glow">
+              Hey, I'm Amit
+            </div>
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+            >
+              Backend &
+              <span class="neon-text-blue block animate-neon-glow"
+                >DevOps Engineer</span
+              >
+            </h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl animate-fade-in-up">
+              I build robust backend systems and implement DevOps practices that
+              will scale with your business.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                href="/resume.pdf"
+                download="Amit_Resume.pdf"
+                class="neon-btn-blue py-3 px-8 rounded-md text-center flex items-center justify-center animate-bounce-in"
+              >
+                <i class="fas fa-download mr-2"></i>
+                <span>Download CV</span>
+              </a>
+
+              <a
+                href="#contact"
+                class="py-3 px-8 rounded-md border border-gray-600 hover:border-neon-blue hover:text-neon-blue transition duration-300 text-center animate-fade-in-up"
+                style="animation-delay: 0.2s"
+              >
+                <i class="fas fa-envelope mr-2"></i>Contact Me
+              </a>
+            </div>
+          </div>
+          <div
+            class="lg:w-1/2 w-full flex justify-center lg:justify-end"
+            data-aos="fade-left"
+            data-aos-delay="400"
+          >
+            <div class="relative w-full max-w-md">
+              <div
+                class="w-64 h-64 md:w-80 md:h-80 rounded-full gradient-bg flex items-center justify-center neon-border-blue mx-auto animate-float"
+              >
+                <div class="cube-container">
+                  <div class="cube">
+                    <div class="cube-face front">
+                      <i class="fas fa-server neon-text-blue"></i>
+                    </div>
+                    <div class="cube-face back">
+                      <i class="fas fa-database neon-text-purple"></i>
+                    </div>
+                    <div class="cube-face right">
+                      <i class="fas fa-cloud neon-text-blue"></i>
+                    </div>
+                    <div class="cube-face left">
+                      <i class="fas fa-code neon-text-purple"></i>
+                    </div>
+                    <div class="cube-face top">
+                      <i class="fas fa-infinity neon-text-blue"></i>
+                    </div>
+                    <div class="cube-face bottom">
+                      <i class="fas fa-cogs neon-text-purple"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="absolute -top-4 -right-4 w-20 h-20 rounded-full gradient-bg flex items-center justify-center neon-border-purple animate-pulse-glow"
+                style="animation-delay: 0.5s"
+              >
+                <i class="fas fa-database text-2xl neon-text-purple"></i>
+              </div>
+              <div
+                class="absolute -bottom-4 -left-4 w-16 h-16 rounded-full gradient-bg flex items-center justify-center neon-border-blue animate-pulse-glow"
+                style="animation-delay: 0.7s"
+              >
+                <i class="fas fa-cloud text-xl neon-text-blue"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section with Slide Animation -->
+    <section id="about" class="gradient-bg">
+      <div class="container">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center mb-4"
+          data-aos="fade-down"
+        >
+          About <span class="neon-text-blue">Me</span>
+        </h2>
+        <div
+          class="flex justify-center mb-10 md:mb-12"
+          data-aos="zoom-in"
+          data-aos-delay="200"
+        >
+          <div
+            class="w-20 h-1 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full"
+          ></div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row items-start gap-8 md:gap-12">
+          <div
+            class="lg:w-2/5 w-full"
+            data-aos="slide-in-right"
+            data-aos-delay="300"
+          >
+            <div
+              class="dark-card p-6 md:p-8 neon-border-blue w-full hover:neon-border-green transition-all duration-500"
+            >
+              <h3
+                class="text-xl md:text-2xl font-bold mb-4 neon-text-purple animate-pulse-glow"
+              >
+                My Focus
+              </h3>
+              <p class="mb-6">
+                I specialize in backend development and DevOps, with expertise
+                in:
+              </p>
+              <ul class="space-y-3">
+                <li
+                  class="flex items-start animate-fade-in-up"
+                  style="animation-delay: 0.1s"
+                >
+                  <i class="fas fa-check-circle neon-text-blue mr-2 mt-1"></i
+                  >API Development & Microservices
+                </li>
+                <li
+                  class="flex items-start animate-fade-in-up"
+                  style="animation-delay: 0.2s"
+                >
+                  <i class="fas fa-check-circle neon-text-blue mr-2 mt-1"></i
+                  >Database Design & Optimization
+                </li>
+                <li
+                  class="flex items-start animate-fade-in-up"
+                  style="animation-delay: 0.3s"
+                >
+                  <i class="fas fa-check-circle neon-text-blue mr-2 mt-1"></i
+                  >Cloud Infrastructure & Deployment
+                </li>
+                <li
+                  class="flex items-start animate-fade-in-up"
+                  style="animation-delay: 0.4s"
+                >
+                  <i class="fas fa-check-circle neon-text-blue mr-2 mt-1"></i
+                  >CI/CD Pipelines & Automation
+                </li>
+                <li
+                  class="flex items-start animate-fade-in-up"
+                  style="animation-delay: 0.5s"
+                >
+                  <i class="fas fa-check-circle neon-text-blue mr-2 mt-1"></i
+                  >Containerization & Orchestration
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            class="lg:w-3/5 w-full"
+            data-aos="slide-in-left"
+            data-aos-delay="500"
+          >
+            <div
+              class="dark-card p-6 md:p-8 neon-border-purple w-full hover:neon-border-green transition-all duration-500"
+            >
+              <h3
+                class="text-xl md:text-2xl font-bold mb-4 neon-text-blue animate-pulse-glow"
+              >
+                My Journey
+              </h3>
+              <p class="mb-4">
+                My name is
+                <span class="font-bold neon-text-blue">Amit Kumar</span>, and I
+                am a passionate backend and DevOps engineer focused on building
+                scalable, efficient systems.
+              </p>
+              <p class="mb-4">
+                I completed my engineering degree in electrical engineering,
+                where I developed strong analytical and problem-solving skills.
+                This foundation has been invaluable in my transition to software
+                development.
+              </p>
+              <p class="mb-4">
+                I specialize in backend technologies like Node.js, Python, and
+                Django, along with DevOps tools like Docker, Kubernetes, and
+                AWS. I'm passionate about creating robust server-side
+                applications and implementing efficient DevOps practices.
+              </p>
+              <p>
+                I'm always open to new challenges and opportunities. Let's
+                create something amazing together!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section with Staggered Animation -->
+    <section id="work">
+      <div class="container">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center mb-4"
+          data-aos="fade-down"
+        >
+          My <span class="neon-text-purple">Projects</span>
+        </h2>
+        <div
+          class="flex justify-center mb-10 md:mb-12"
+          data-aos="zoom-in"
+          data-aos-delay="200"
+        >
+          <div
+            class="w-20 h-1 bg-gradient-to-r from-neon-purple to-neon-blue rounded-full"
+          ></div>
+        </div>
+        <p
+          class="text-center text-lg md:text-xl mb-10 md:mb-12 max-w-3xl mx-auto"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          These are my personal projects focused on backend development and
+          DevOps
+        </p>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+        >
+          <!-- Project 1 -->
+          <div
+            class="project-card dark-card p-6 rounded-lg neon-border-blue"
+            data-aos="flip-up"
+            data-aos-delay="200"
+          >
+            <div class="mb-4">
+              <i class="fas fa-robot text-4xl neon-text-blue"></i>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold mb-3">
+              Portfolio Chatbot
+            </h3>
+            <p class="mb-4 text-sm md:text-base">
+              A backend-powered chatbot API that answers questions about me and
+              my work. Built with Node.js and integrated with a natural language
+              processing API.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span
+                class="px-3 py-1 bg-gray-800 rounded-full text-xs md:text-sm"
+                >Node.js</span
+              >
+              <span
+                class="px-3 py-1 bg-gray-800 rounded-full text-xs md:text-sm"
+                >Express</span
+              >
+              <span
+                class="px-3 py-1 bg-gray-800 rounded-full text-xs md:text-sm"
+                >WebSocket</span
+              >
+            </div>
+            <a
+              href="#"
+              class="neon-text-blue hover:underline text-sm md:text-base"
+              >View Details →</a
+            >
+          </div>
+
+          <!-- Project 2 -->
+          <div
+            class="project-card dark-card p-6 rounded-lg neon-border-purple"
+            data-aos="flip-up"
+            data-aos-delay="400"
+          >
+            <div class="mb-4">
+              <i class="fas fa-brain text-4xl neon-text-purple"></i>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold mb-3">AI Assistant API</h3>
+            <p class="mb-4 text-sm md:text-base">
+              A backend service providing AI capabilities through RESTful APIs.
+              Features include user authentication, request throttling, and
+              response caching.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span
+                class="px-3 py-1 bg-gray-800 rounded-full text-xs md:text-sm"
+                >Python</span
+              >
+              <span
+                class="px-3 py-1 bg-gray-800 rounded-full text-xs md:text-sm"
+                >FastAPI</span
+              >
+              <span
+                class="px-3 py-1 bg-gray-800 rounded-full text-xs md:text-sm"
+                >Redis</span
+              >
+              <span
+                class="px-3 py-1 bg-gray-800 rounded-full text-xs md:text-sm"
+                >JWT</span
+              >
+            </div>
+            <a
+              href="#"
+              class="neon-text-blue hover:underline text-sm md:text-base"
+              >View Details →</a
+            >
+          </div>
+
+          <!-- Project 3 -->
+          <div
+            class="project-card dark-card p-6 rounded-lg neon-border-blue"
+            data-aos="flip-up"
+            data-aos-delay="600"
+          >
+            <div class="mb-4">
+              <i class="fas fa-lock text-4xl neon-text-blue"></i>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold mb-3">
+              Authentication Service
+            </h3>
+            <p class="mb-4 text-sm md:text-base">
+              A microservice for user authentication and authorization with JWT,
+              OAuth2, and role-based access control. Containerized with Docker
+              and deployed on Kubernetes.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span
+                class="px-3 py-1 bg-gray-800 rounded-full text-xs md:text-sm"
+                >Flask</span
+              >
+              <span
+                class="px-3 py-1 bg-gray-800 rounded-full text-xs md:text-sm"
+                >Docker</span
+              >
+              <span
+                class="px-3 py-1 bg-gray-800 rounded-full text-xs md:text-sm"
+                >Kubernetes</span
+              >
+              <span
+                class="px-3 py-1 bg-gray-800 rounded-full text-xs md:text-sm"
+                >PostgreSQL</span
+              >
+            </div>
+            <a
+              href="#"
+              class="neon-text-blue hover:underline text-sm md:text-base"
+              >View Details →</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stacks Section with Bounce Animation -->
+    <section id="tech" class="gradient-bg">
+      <div class="container">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center mb-4"
+          data-aos="fade-down"
+        >
+          Tech <span class="neon-text-blue">Stacks</span>
+        </h2>
+        <div
+          class="flex justify-center mb-10 md:mb-12"
+          data-aos="zoom-in"
+          data-aos-delay="200"
+        >
+          <div
+            class="w-20 h-1 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full"
+          ></div>
+        </div>
+
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8"
+        >
+          <!-- Tech 1 -->
+          <div
+            class="dark-card p-4 md:p-6 rounded-lg text-center neon-border-blue hover:neon-border-purple transition-all duration-300"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div class="tech-icon mb-3 md:mb-4">
+              <i
+                class="fab fa-node-js text-4xl md:text-5xl lg:text-6xl neon-text-blue"
+              ></i>
+            </div>
+            <h3 class="text-lg md:text-xl font-bold mb-2">Node.js</h3>
+            <p class="text-xs md:text-sm">
+              JavaScript runtime for scalable server-side apps.
+            </p>
+          </div>
+
+          <!-- Tech 2 -->
+          <div
+            class="dark-card p-4 md:p-6 rounded-lg text-center neon-border-purple hover:neon-border-blue transition-all duration-300"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <div class="tech-icon mb-3 md:mb-4">
+              <i
+                class="fab fa-python text-4xl md:text-5xl lg:text-6xl neon-text-purple"
+              ></i>
+            </div>
+            <h3 class="text-lg md:text-xl font-bold mb-2">Python/Django</h3>
+            <p class="text-xs md:text-sm">
+              Python web framework for rapid backend dev.
+            </p>
+          </div>
+
+          <!-- Tech 3 -->
+          <div
+            class="dark-card p-4 md:p-6 rounded-lg text-center neon-border-blue hover:neon-border-purple transition-all duration-300"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <div class="tech-icon mb-3 md:mb-4">
+              <i
+                class="fas fa-database text-4xl md:text-5xl lg:text-6xl neon-text-blue"
+              ></i>
+            </div>
+            <h3 class="text-lg md:text-xl font-bold mb-2">MongoDB</h3>
+            <p class="text-xs md:text-sm">
+              NoSQL database for flexible data storage.
+            </p>
+          </div>
+
+          <!-- Tech 4 -->
+          <div
+            class="dark-card p-4 md:p-6 rounded-lg text-center neon-border-purple hover:neon-border-blue transition-all duration-300"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            <div class="tech-icon mb-3 md:mb-4">
+              <i
+                class="fab fa-docker text-4xl md:text-5xl lg:text-6xl neon-text-purple"
+              ></i>
+            </div>
+            <h3 class="text-lg md:text-xl font-bold mb-2">Docker</h3>
+            <p class="text-xs md:text-sm">
+              Containerization for consistent deployment.
+            </p>
+          </div>
+
+          <!-- Tech 5 -->
+          <div
+            class="dark-card p-4 md:p-6 rounded-lg text-center neon-border-blue hover:neon-border-purple transition-all duration-300"
+            data-aos="zoom-in"
+            data-aos-delay="500"
+          >
+            <div class="tech-icon mb-3 md:mb-4">
+              <i
+                class="fab fa-aws text-4xl md:text-5xl lg:text-6xl neon-text-blue"
+              ></i>
+            </div>
+            <h3 class="text-lg md:text-xl font-bold mb-2">AWS</h3>
+            <p class="text-xs md:text-sm">
+              Cloud services for scalable infrastructure.
+            </p>
+          </div>
+
+          <!-- Tech 6 -->
+          <div
+            class="dark-card p-4 md:p-6 rounded-lg text-center neon-border-purple hover:neon-border-blue transition-all duration-300"
+            data-aos="zoom-in"
+            data-aos-delay="600"
+          >
+            <div class="tech-icon mb-3 md:mb-4">
+              <i
+                class="fas fa-code-branch text-4xl md:text-5xl lg:text-6xl neon-text-purple"
+              ></i>
+            </div>
+            <h3 class="text-lg md:text-xl font-bold mb-2">Git & CI/CD</h3>
+            <p class="text-xs md:text-sm">
+              Version control and automated deployment.
+            </p>
+          </div>
+
+          <!-- Tech 7 -->
+          <div
+            class="dark-card p-4 md:p-6 rounded-lg text-center neon-border-blue hover:neon-border-purple transition-all duration-300"
+            data-aos="zoom-in"
+            data-aos-delay="700"
+          >
+            <div class="tech-icon mb-3 md:mb-4">
+              <i
+                class="fas fa-server text-4xl md:text-5xl lg:text-6xl neon-text-blue"
+              ></i>
+            </div>
+            <h3 class="text-lg md:text-xl font-bold mb-2">Nginx</h3>
+            <p class="text-xs md:text-sm">
+              High-performance web server and proxy.
+            </p>
+          </div>
+
+          <!-- Tech 8 -->
+          <div
+            class="dark-card p-4 md:p-6 rounded-lg text-center neon-border-purple hover:neon-border-blue transition-all duration-300"
+            data-aos="zoom-in"
+            data-aos-delay="800"
+          >
+            <div class="tech-icon mb-3 md:mb-4">
+              <i
+                class="fas fa-project-diagram text-4xl md:text-5xl lg:text-6xl neon-text-purple"
+              ></i>
+            </div>
+            <h3 class="text-lg md:text-xl font-bold mb-2">Microservices</h3>
+            <p class="text-xs md:text-sm">
+              Architecture for distributed systems.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section with Form Animation -->
+    <section id="contact">
+      <div class="container">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center mb-4"
+          data-aos="fade-down"
+        >
+          Contact <span class="neon-text-blue">Me</span>
+        </h2>
+        <div
+          class="flex justify-center mb-10 md:mb-12"
+          data-aos="zoom-in"
+          data-aos-delay="200"
+        >
+          <div
+            class="w-20 h-1 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full"
+          ></div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-8 md:gap-12">
+          <div
+            class="lg:w-1/2 w-full"
+            data-aos="fade-right"
+            data-aos-delay="300"
+          >
+            <div
+              class="dark-card p-6 md:p-8 rounded-lg neon-border-blue w-full hover:neon-border-green transition-all duration-500"
+            >
+              <h3 class="text-xl md:text-2xl font-bold mb-6 neon-text-purple">
+                Get In Touch
+              </h3>
+              <form id="contact-form">
+                <div
+                  class="mb-4 md:mb-6"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                >
+                  <label for="full-name" class="block mb-2 text-sm md:text-base"
+                    >Full Name</label
+                  >
+                  <input
+                    type="text"
+                    id="full-name"
+                    class="w-full p-3 rounded-md bg-gray-900 border border-gray-700 focus:border-neon-blue focus:outline-none text-sm md:text-base"
+                    placeholder="Your Full Name"
+                    required
+                  />
+                </div>
+                <div
+                  class="mb-4 md:mb-6"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                >
+                  <label for="email" class="block mb-2 text-sm md:text-base"
+                    >Email Address</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    class="w-full p-3 rounded-md bg-gray-900 border border-gray-700 focus:border-neon-blue focus:outline-none text-sm md:text-base"
+                    placeholder="example@domain.com"
+                    required
+                  />
+                </div>
+                <div
+                  class="mb-4 md:mb-6"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                >
+                  <label for="subject" class="block mb-2 text-sm md:text-base"
+                    >Subject</label
+                  >
+                  <input
+                    type="text"
+                    id="subject"
+                    class="w-full p-3 rounded-md bg-gray-900 border border-gray-700 focus:border-neon-blue focus:outline-none text-sm md:text-base"
+                    placeholder="Enter your subject"
+                    required
+                  />
+                </div>
+                <div
+                  class="mb-4 md:mb-6"
+                  data-aos="fade-up"
+                  data-aos-delay="400"
+                >
+                  <label for="message" class="block mb-2 text-sm md:text-base"
+                    >Message</label
+                  >
+                  <textarea
+                    id="message"
+                    rows="4"
+                    class="w-full p-3 rounded-md bg-gray-900 border border-gray-700 focus:border-neon-blue focus:outline-none text-sm md:text-base"
+                    placeholder="Type your message"
+                    required
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="neon-btn-blue py-3 px-8 rounded-md w-full text-sm md:text-base"
+                  data-aos="zoom-in"
+                  data-aos-delay="500"
+                >
+                  <i class="fas fa-paper-plane mr-2"></i>Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div
+            class="lg:w-1/2 w-full"
+            data-aos="fade-left"
+            data-aos-delay="400"
+          >
+            <div
+              class="dark-card p-6 md:p-8 rounded-lg neon-border-purple w-full h-full hover:neon-border-green transition-all duration-500"
+            >
+              <h3 class="text-xl md:text-2xl font-bold mb-6 neon-text-blue">
+                Contact Information
+              </h3>
+              <div class="space-y-4 md:space-y-6">
+                <div
+                  class="flex items-start"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                >
+                  <div class="mr-3 md:mr-4 mt-1">
+                    <i
+                      class="fas fa-envelope text-lg md:text-xl neon-text-blue"
+                    ></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold mb-1 text-sm md:text-base">Email</h4>
+                    <a
+                      href="mailto:amitkumar.devnode@gmail.com"
+                      class="text-sm md:text-base"
+                    >
+                      amitkumar.devnode@gmail.com
+                    </a>
+                  </div>
+                </div>
+                <div
+                  class="flex items-start"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                >
+                  <div class="mr-3 md:mr-4 mt-1">
+                    <i
+                      class="fas fa-phone text-lg md:text-xl neon-text-purple"
+                    ></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold mb-1 text-sm md:text-base">Phone</h4>
+                    <a href="tel:+918340616588" class="text-sm md:text-base"
+                      >+918340616588</a
+                    >
+                  </div>
+                </div>
+                <div
+                  class="flex items-start"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                >
+                  <div class="mr-3 md:mr-4 mt-1">
+                    <i
+                      class="fas fa-map-marker-alt text-lg md:text-xl neon-text-blue"
+                    ></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold mb-1 text-sm md:text-base">
+                      Location
+                    </h4>
+                    <p class="text-sm md:text-base">India</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-8 md:mt-10">
+                <h4 class="font-bold text-lg md:text-xl mb-4 neon-text-purple">
+                  Connect with me
+                </h4>
+                <div class="flex space-x-3 md:space-x-4">
+                  <a
+                    href="https://github.com/amiitdev"
+                    class="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center border border-gray-700 hover:neon-border-blue hover:text-neon-blue transition duration-300"
+                    data-aos="zoom-in"
+                    data-aos-delay="100"
+                  >
+                    <i class="fab fa-github text-lg md:text-xl"></i>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/amit1924/"
+                    class="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center border border-gray-700 hover:neon-border-purple hover:text-neon-purple transition duration-300"
+                    data-aos="zoom-in"
+                    data-aos-delay="200"
+                  >
+                    <i class="fab fa-linkedin text-lg md:text-xl"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center border border-gray-700 hover:neon-border-blue hover:text-neon-blue transition duration-300"
+                    data-aos="zoom-in"
+                    data-aos-delay="300"
+                  >
+                    <i class="fab fa-twitter text-lg md:text-xl"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center border border-gray-700 hover:neon-border-purple hover:text-neon-purple transition duration-300"
+                    data-aos="zoom-in"
+                    data-aos-delay="400"
+                  >
+                    <i class="fab fa-discord text-lg md:text-xl"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 md:py-12 border-t border-gray-900">
+      <div class="container">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0 text-center md:text-left" data-aos="fade-up">
+            <div class="text-2xl font-bold neon-text-blue">@mit</div>
+            <div class="text-sm mt-2">Backend & DevOps Engineer</div>
+          </div>
+
+          <div
+            class="flex flex-wrap justify-center gap-4 md:gap-6 mb-6 md:mb-0"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <a
+              href="#"
+              class="hover:text-neon-blue transition duration-300 text-sm md:text-base"
+              >About</a
+            >
+            <a
+              href="#"
+              class="hover:text-neon-blue transition duration-300 text-sm md:text-base"
+              >Blog</a
+            >
+            <a
+              href="#"
+              class="hover:text-neon-blue transition duration-300 text-sm md:text-base"
+              >Privacy</a
+            >
+            <a
+              href="#"
+              class="hover:text-neon-blue transition duration-300 text-sm md:text-base"
+              >Contact</a
+            >
+          </div>
+
+          <div
+            class="flex space-x-3 md:space-x-4"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <a
+              href="#"
+              class="w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center border border-gray-700 hover:neon-border-blue transition duration-300"
+            >
+              <i class="fab fa-facebook-f text-sm md:text-base"></i>
+            </a>
+            <a
+              href="#"
+              class="w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center border border-gray-700 hover:neon-border-purple transition duration-300"
+            >
+              <i class="fab fa-twitter text-sm md:text-base"></i>
+            </a>
+            <a
+              href="#"
+              class="w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center border border-gray-700 hover:neon-border-blue transition duration-300"
+            >
+              <i class="fab fa-github text-sm md:text-base"></i>
+            </a>
+            <a
+              href="#"
+              class="w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center border border-gray-700 hover:neon-border-purple transition duration-300"
+            >
+              <i class="fab fa-discord text-sm md:text-base"></i>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="mt-8 pt-8 border-t border-gray-800 text-center text-sm text-gray-500"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <p>
+            © 2024 <span class="neon-text-blue">@mit</span>. All Rights
+            Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-6 right-6 w-12 h-12 rounded-full flex items-center justify-center neon-btn-blue hidden z-30 animate-bounce-in"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Success Modal -->
+    <div
+      id="success-modal"
+      class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden p-4"
+    >
+      <div
+        class="dark-card p-6 md:p-8 rounded-lg max-w-md w-full neon-border-green"
+        data-aos="zoom-in"
+      >
+        <div class="text-center">
+          <div class="mb-4">
+            <i
+              class="fas fa-check-circle text-4xl md:text-5xl neon-text-blue"
+            ></i>
+          </div>
+          <h3 class="text-xl md:text-2xl font-bold mb-4">Message Sent!</h3>
+          <p class="mb-6 text-sm md:text-base">
+            Thank you for reaching out. I'll get back to you as soon as
+            possible.
+          </p>
+          <button
+            id="close-modal"
+            class="neon-btn-blue py-2 px-6 rounded-md text-sm md:text-base"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CV Download Success Modal -->
+    <div
+      id="cv-success-modal"
+      class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden p-4"
+    >
+      <div
+        class="dark-card p-6 md:p-8 rounded-lg max-w-md w-full neon-border-blue"
+        data-aos="zoom-in"
+      >
+        <div class="text-center">
+          <div class="mb-4">
+            <i
+              class="fas fa-file-download text-4xl md:text-5xl neon-text-green"
+            ></i>
+          </div>
+          <h3 class="text-xl md:text-2xl font-bold mb-4">
+            CV Download Started!
+          </h3>
+          <p class="mb-6 text-sm md:text-base">
+            Your CV download has started. Check your downloads folder.
+          </p>
+          <button
+            id="close-cv-modal"
+            class="neon-btn-blue py-2 px-6 rounded-md text-sm md:text-base"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Initialize AOS (Animate On Scroll) library
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100,
+        delay: 100,
+      });
+
+      // Create floating particles
+      function createParticles() {
+        const particlesContainer = document.getElementById(
+          'particles-container',
+        );
+        const particleCount = window.innerWidth < 768 ? 15 : 30;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div');
+          particle.classList.add('particle');
+
+          // Random size and position
+          const size = Math.random() * 10 + 5;
+          const posX = Math.random() * 100;
+          const posY = Math.random() * 100;
+
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          particle.style.left = `${posX}%`;
+          particle.style.top = `${posY}%`;
+
+          // Random color (blue or purple)
+          const colors = [
+            'rgba(0, 243, 255, 0.1)',
+            'rgba(157, 0, 255, 0.1)',
+            'rgba(0, 255, 157, 0.1)',
+          ];
+          particle.style.background =
+            colors[Math.floor(Math.random() * colors.length)];
+
+          // Random animation
+          const duration = Math.random() * 20 + 10;
+          const delay = Math.random() * 5;
+          particle.style.animation = `particle-float ${duration}s ease-in-out infinite`;
+          particle.style.animationDelay = `${delay}s`;
+
+          particlesContainer.appendChild(particle);
+        }
+      }
+
+      // Mobile Menu Toggle - Fixed
+      const hamburgerBtn = document.getElementById('hamburger-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+      hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('hamburger-active');
+        mobileMenu.classList.toggle('active');
+        mobileMenuOverlay.style.display = mobileMenu.classList.contains(
+          'active',
+        )
+          ? 'block'
+          : 'none';
+
+        // Prevent body scrolling when menu is open
+        if (mobileMenu.classList.contains('active')) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = 'auto';
+        }
+      });
+
+      // Close mobile menu when clicking overlay
+      mobileMenuOverlay.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('hamburger-active');
+        mobileMenu.classList.remove('active');
+        mobileMenuOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      });
+
+      // Close mobile menu when clicking a link
+      const mobileLinks = document.querySelectorAll('#mobile-menu a');
+      mobileLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          hamburgerBtn.classList.remove('hamburger-active');
+          mobileMenu.classList.remove('active');
+          mobileMenuOverlay.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        });
+      });
+
+      // REAL CV Download Implementation
+      const downloadCvBtn = document.getElementById('download-cv');
+      const downloadCvMobileBtn = document.getElementById('download-cv-mobile');
+      const cvSuccessModal = document.getElementById('cv-success-modal');
+      const closeCvModalBtn = document.getElementById('close-cv-modal');
+
+      // Function to create and download a PDF CV
+      const downloadCV = async (buttonElement) => {
+        // Show loading state
+        const loadingSpinner = buttonElement.querySelector('.download-loading');
+        const buttonText = buttonElement.querySelector('span');
+        const originalText = buttonText.textContent;
+
+        buttonText.textContent = 'Preparing...';
+        loadingSpinner.style.display = 'block';
+        buttonElement.disabled = true;
+
+        // Simulate network delay (remove in production)
+        await new Promise((resolve) => setTimeout(resolve, 1500));
+
+        // Create a sample CV PDF (in real implementation, link to actual PDF)
+        const createFakePDF = () => {
+          // This creates a fake PDF file for demonstration
+          // In a real implementation, you would link to an actual PDF file
+
+          // Method 1: Using a data URL (for simple text files)
+          const cvContent = `
+                    AMIT KUMAR - BACKEND & DEVOPS ENGINEER
+                    =========================================
+                    
+                    CONTACT INFORMATION:
+                    Email: amitkumar.devnode@gmail.com
+                    Phone: +91 8340616588
+                    Location: India
+                    GitHub: https://github.com/amiitdev
+                    LinkedIn: www.linkedin.com/in/amit1924
+                    
+                    SUMMARY:
+                    Passionate Backend and DevOps Engineer with expertise in building scalable systems,
+                    implementing CI/CD pipelines, and optimizing cloud infrastructure. Strong background
+                    in microservices architecture, containerization, and automation.
+                    
+                    TECHNICAL SKILLS:
+                    • Backend: Node.js, Python, Django, Express.js, FastAPI
+                    • Databases: MongoDB, PostgreSQL, Redis, MySQL
+                    • DevOps: Docker, Kubernetes, AWS, CI/CD, Git, Jenkins
+                    • Cloud: AWS EC2, S3, RDS, Lambda, CloudFormation
+                    • Other: REST APIs, Microservices, Nginx, Linux, Bash
+                    
+                    EXPERIENCE:
+                    • Backend Developer Intern at TechCorp (2023)
+                      - Developed RESTful APIs for customer management system
+                      - Implemented authentication system using JWT
+                      - Containerized applications using Docker
+                    
+                    • DevOps Trainee at CloudSystems (2022)
+                      - Assisted in setting up CI/CD pipelines using Jenkins
+                      - Managed cloud infrastructure on AWS
+                      - Implemented monitoring with Prometheus and Grafana
+                    
+                    EDUCATION:
+                    • B.Tech in Electrical Engineering - University of Technology (2020-2024)
+                      GPA: 8.5/10
+                    
+                    PROJECTS:
+                    • Portfolio Chatbot: Node.js chatbot API with NLP integration
+                    • AI Assistant API: Python FastAPI service with Redis caching
+                    • Authentication Microservice: Flask service with JWT and OAuth2
+                    
+                    CERTIFICATIONS:
+                    • AWS Certified Solutions Architect - Associate
+                    • Docker Certified Associate
+                    • Microsoft Azure Fundamentals
+                `;
+
+          const blob = new Blob([cvContent], { type: 'application/pdf' });
+          return URL.createObjectURL(blob);
+        };
+
+        // Create download link
+        const pdfUrl = createFakePDF();
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = 'Amit_Kumar_Backend_DevOps_CV.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // Clean up URL object
+        setTimeout(() => URL.revokeObjectURL(pdfUrl), 100);
+
+        // Reset button state
+        buttonText.textContent = originalText;
+        loadingSpinner.style.display = 'none';
+        buttonElement.disabled = false;
+
+        // Show success modal
+        cvSuccessModal.classList.remove('hidden');
+      };
+
+      downloadCvBtn.addEventListener('click', () => downloadCV(downloadCvBtn));
+      downloadCvMobileBtn.addEventListener('click', () =>
+        downloadCV(downloadCvMobileBtn),
+      );
+
+      closeCvModalBtn.addEventListener('click', () => {
+        cvSuccessModal.classList.add('hidden');
+      });
+
+      // Close CV modal when clicking outside
+      cvSuccessModal.addEventListener('click', (e) => {
+        if (e.target === cvSuccessModal) {
+          cvSuccessModal.classList.add('hidden');
+        }
+      });
+
+      // Back to Top Button
+      const backToTopBtn = document.getElementById('back-to-top');
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          backToTopBtn.classList.remove('hidden');
+        } else {
+          backToTopBtn.classList.add('hidden');
+        }
+      });
+
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Contact Form Submission
+      const contactForm = document.getElementById('contact-form');
+      const successModal = document.getElementById('success-modal');
+      const closeModalBtn = document.getElementById('close-modal');
+
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // In a real implementation, you would send the form data to a server
+        // For now, we'll just show a success message
+        successModal.classList.remove('hidden');
+
+        // Reset the form
+        contactForm.reset();
+      });
+
+      closeModalBtn.addEventListener('click', () => {
+        successModal.classList.add('hidden');
+      });
+
+      // Close modal when clicking outside
+      successModal.addEventListener('click', (e) => {
+        if (e.target === successModal) {
+          successModal.classList.add('hidden');
+        }
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            e.preventDefault();
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth',
+            });
+          }
+        });
+      });
+
+      // Add active state to navigation links on scroll
+      const sections = document.querySelectorAll('section[id]');
+
+      window.addEventListener('scroll', () => {
+        let current = '';
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+
+          if (scrollY >= sectionTop - 100) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        // Update active link
+        document.querySelectorAll('nav a').forEach((link) => {
+          link.classList.remove('neon-text-blue');
+          if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('neon-text-blue');
+          }
+        });
+      });
+
+      // Create particles on load
+      document.addEventListener('DOMContentLoaded', () => {
+        createParticles();
+
+        // Add typing effect to hero text
+        const heroTitle = document.querySelector('#home h1');
+        heroTitle.style.animation = 'none';
+        setTimeout(() => {
+          heroTitle.style.animation = '';
+        }, 100);
+      });
+
+      // Fix for iOS Safari 100vh issue
+      function setVh() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      }
+
+      setVh();
+      window.addEventListener('resize', setVh);
+
+      // Add mouse move parallax effect to particles
+      document.addEventListener('mousemove', (e) => {
+        const particles = document.querySelectorAll('.particle');
+        const mouseX = e.clientX / window.innerWidth;
+        const mouseY = e.clientY / window.innerHeight;
+
+        particles.forEach((particle) => {
+          const speed = parseFloat(particle.style.width) / 20;
+          const x = (mouseX * speed * 2 - speed) * 10;
+          const y = (mouseY * speed * 2 - speed) * 10;
+
+          particle.style.transform = `translate(${x}px, ${y}px)`;
+        });
+      });
+    </script>
+  </body>
+</html>
